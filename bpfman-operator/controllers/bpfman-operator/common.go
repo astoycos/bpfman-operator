@@ -32,9 +32,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/event"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	internal "github.com/bpfman/bpfman/bpfman-operator/internal"
-	bpfmanHelpers "github.com/bpfman/bpfman/bpfman-operator/pkg/helpers"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	internal "github.com/bpfman/bpfman-operator/internal"
+	bpfmanHelpers "github.com/bpfman/bpfman-operator/pkg/helpers"
 	"github.com/go-logr/logr"
 )
 

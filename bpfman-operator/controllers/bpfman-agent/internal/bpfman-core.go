@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"strconv"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	"github.com/bpfman/bpfman/bpfman-operator/internal"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	"github.com/bpfman/bpfman-operator/internal"
 	gobpfman "github.com/bpfman/bpfman/clients/gobpfman/v1"
 	"github.com/containers/image/docker/reference"
 

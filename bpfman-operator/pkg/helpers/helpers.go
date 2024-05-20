@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	//bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	bpfmanclientset "github.com/bpfman/bpfman/bpfman-operator/pkg/client/clientset/versioned"
+	//bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmanclientset "github.com/bpfman/bpfman-operator/pkg/client/clientset/versioned"
 	//"k8s.io/apimachinery/pkg/api/errors"
 	//"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -35,7 +35,7 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
 )
 
 // Must match the internal bpfman-api mappings

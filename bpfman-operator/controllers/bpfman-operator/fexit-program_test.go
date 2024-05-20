@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"testing"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	internal "github.com/bpfman/bpfman/bpfman-operator/internal"
-	testutils "github.com/bpfman/bpfman/bpfman-operator/internal/test-utils"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	internal "github.com/bpfman/bpfman-operator/internal"
+	testutils "github.com/bpfman/bpfman-operator/internal/test-utils"
 
 	"github.com/stretchr/testify/require"
 	meta "k8s.io/apimachinery/pkg/api/meta"

@@ -26,8 +26,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	"github.com/bpfman/bpfman/bpfman-operator/internal"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	"github.com/bpfman/bpfman-operator/internal"
 	"github.com/buger/jsonparser"
 	"github.com/go-logr/logr"
 )

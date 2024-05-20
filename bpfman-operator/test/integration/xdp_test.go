@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	bpfmanHelpers "github.com/bpfman/bpfman/bpfman-operator/pkg/helpers"
+	bpfmanHelpers "github.com/bpfman/bpfman-operator/pkg/helpers"
 	"github.com/kong/kubernetes-testing-framework/pkg/clusters"
 	"github.com/stretchr/testify/require"
 	corev1 "k8s.io/api/core/v1"
@@ -117,8 +117,8 @@ func TestXdpGoCounter(t *testing.T) {
 		require.NoError(t, err)
 		return daemon.Status.DesiredNumberScheduled == daemon.Status.NumberAvailable
 	},
-	// Wait 5 minutes since cosign is slow, https://github.com/bpfman/bpfman/issues/1043
-	5 * time.Minute, 10 * time.Second)
+		// Wait 5 minutes since cosign is slow, https://github.com/bpfman/bpfman/issues/1043
+		5*time.Minute, 10*time.Second)
 
 	pods, err := env.Cluster().Client().CoreV1().Pods(xdpGoCounterUserspaceNs).List(ctx, metav1.ListOptions{LabelSelector: "name=go-xdp-counter"})
 	require.NoError(t, err)

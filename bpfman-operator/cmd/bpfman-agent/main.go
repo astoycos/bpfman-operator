@@ -34,10 +34,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	bpfmanagent "github.com/bpfman/bpfman/bpfman-operator/controllers/bpfman-agent"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmanagent "github.com/bpfman/bpfman-operator/controllers/bpfman-agent"
 
-	"github.com/bpfman/bpfman/bpfman-operator/internal/conn"
+	"github.com/bpfman/bpfman-operator/internal/conn"
 	gobpfman "github.com/bpfman/bpfman/clients/gobpfman/v1"
 	v1 "k8s.io/api/core/v1"
 	//+kubebuilder:scaffold:imports

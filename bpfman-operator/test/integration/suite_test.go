@@ -17,9 +17,9 @@ import (
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/bpfman/bpfman/bpfman-operator/internal"
-	"github.com/bpfman/bpfman/bpfman-operator/pkg/client/clientset/versioned"
-	bpfmanHelpers "github.com/bpfman/bpfman/bpfman-operator/pkg/helpers"
+	"github.com/bpfman/bpfman-operator/internal"
+	"github.com/bpfman/bpfman-operator/pkg/client/clientset/versioned"
+	bpfmanHelpers "github.com/bpfman/bpfman-operator/pkg/helpers"
 )
 
 var (

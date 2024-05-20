@@ -49,5 +49,5 @@ fi
 
 gendoc::build
 gendoc::exec \
-    -api-dir "github.com/bpfman/bpfman/bpfman-operator/apis/" \
+    -api-dir "github.com/bpfman/bpfman-operator/apis/" \
     -out-file "${1}"

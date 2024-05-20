@@ -181,7 +181,7 @@ ifeq ($(VERIFY_CODEGEN), true)
 VERIFY_FLAG=--verify-only
 endif
 
-PKG ?= github.com/bpfman/bpfman/bpfman-operator
+PKG ?= github.com/bpfman/bpfman-operator
 COMMON_FLAGS ?= ${VERIFY_FLAG} --go-header-file $(shell pwd)/hack/boilerplate.go.txt
 
 .PHONY: manifests

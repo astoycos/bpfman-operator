@@ -19,7 +19,7 @@ limitations under the License.
 package scheme
 
 import (
-	bpfmanv1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmanv1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

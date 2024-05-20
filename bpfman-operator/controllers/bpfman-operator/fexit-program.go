@@ -29,8 +29,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	"github.com/bpfman/bpfman/bpfman-operator/internal"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	"github.com/bpfman/bpfman-operator/internal"
 )
 
 //+kubebuilder:rbac:groups=bpfman.io,resources=fexitprograms,verbs=get;list;watch;create;update;patch;delete

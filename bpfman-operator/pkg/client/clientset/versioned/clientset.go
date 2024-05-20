@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"net/http"
 
-	bpfmanv1alpha1 "github.com/bpfman/bpfman/bpfman-operator/pkg/client/clientset/versioned/typed/apis/v1alpha1"
+	bpfmanv1alpha1 "github.com/bpfman/bpfman-operator/pkg/client/clientset/versioned/typed/apis/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

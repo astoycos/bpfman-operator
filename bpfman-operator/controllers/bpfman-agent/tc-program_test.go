@@ -24,12 +24,12 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"google.golang.org/protobuf/testing/protocmp"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	bpfmanagentinternal "github.com/bpfman/bpfman/bpfman-operator/controllers/bpfman-agent/internal"
-	agenttestutils "github.com/bpfman/bpfman/bpfman-operator/controllers/bpfman-agent/internal/test-utils"
-	testutils "github.com/bpfman/bpfman/bpfman-operator/internal/test-utils"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmanagentinternal "github.com/bpfman/bpfman-operator/controllers/bpfman-agent/internal"
+	agenttestutils "github.com/bpfman/bpfman-operator/controllers/bpfman-agent/internal/test-utils"
+	testutils "github.com/bpfman/bpfman-operator/internal/test-utils"
 
-	internal "github.com/bpfman/bpfman/bpfman-operator/internal"
+	internal "github.com/bpfman/bpfman-operator/internal"
 
 	gobpfman "github.com/bpfman/bpfman/clients/gobpfman/v1"
 	"github.com/stretchr/testify/require"

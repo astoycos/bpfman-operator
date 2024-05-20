@@ -28,9 +28,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	bpfmaniov1alpha1 "github.com/bpfman/bpfman/bpfman-operator/apis/v1alpha1"
-	bpfmanagentinternal "github.com/bpfman/bpfman/bpfman-operator/controllers/bpfman-agent/internal"
-	internal "github.com/bpfman/bpfman/bpfman-operator/internal"
+	bpfmaniov1alpha1 "github.com/bpfman/bpfman-operator/apis/v1alpha1"
+	bpfmanagentinternal "github.com/bpfman/bpfman-operator/controllers/bpfman-agent/internal"
+	internal "github.com/bpfman/bpfman-operator/internal"
 
 	gobpfman "github.com/bpfman/bpfman/clients/gobpfman/v1"
 	v1 "k8s.io/api/core/v1"
