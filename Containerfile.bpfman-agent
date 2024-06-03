@@ -1,10 +1,10 @@
-# Build the manager binary
-ARG TARGETPLATFORM
-ARG BUILDPLATFORM
-FROM docker.io/library/golang:1.22 as bpfman-agent-build
 ARG TARGETOS
 ARG TARGETPLATFORM
 ARG TARGETARCH
+ARG BUILDPLATFORM
+
+# Build the manager binary
+FROM docker.io/library/golang:1.22 as bpfman-agent-build
 
 WORKDIR /usr/src/bpfman-operator
 
@@ -31,7 +31,7 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -mod ven
 
 # Use the fedora minimal image to reduce the size of the final image but still
 # be able to easily install extra packages.
-FROM quay.io/fedora/fedora-minimal
+FROM quay.io/fedora/fedora-minimal:41
 ARG DNF_CMD="microdnf"
 
 # The full fedora image can be used for debugging purposes.  To use it, comment
@@ -39,10 +39,10 @@ ARG DNF_CMD="microdnf"
 # FROM fedora:38
 # ARG DNF_CMD="dnf"
 
-ARG TARGETARCH
 WORKDIR /
 COPY --from=bpfman-agent-build /usr/src/bpfman-operator/bpfman-agent .
 
+ARG TARGETARCH
 # Install crictl
 RUN ${DNF_CMD} -y install wget tar gzip
 ARG VERSION="v1.28.0"

@@ -31,12 +31,11 @@ jobs:
             dockerfile: ./Containerfile.bpfman-agent
             context: .
             tags: |
-              type=ref,event=branch
               type=ref,event=tag
               type=ref,event=pr
               type=sha,format=long
               # set latest tag for default branch
-              type=raw,value=latest,enable={{is_default_branch}}
+              type=raw,value=main,enable={{is_default_branch}}
 
           - registry: quay.io
             repository: bpfman
@@ -44,12 +43,11 @@ jobs:
             dockerfile: ./Containerfile.bpfman-operator
             context: .
             tags: |
-              type=ref,event=branch
               type=ref,event=tag
               type=ref,event=pr
               type=sha,format=long
               # set latest tag for default branch
-              type=raw,value=latest,enable={{is_default_branch}}
+              type=raw,value=main,enable={{is_default_branch}}
 
           - registry: quay.io
             repository: bpfman
