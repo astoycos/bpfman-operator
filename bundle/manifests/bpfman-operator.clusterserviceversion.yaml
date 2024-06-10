@@ -9,15 +9,54 @@ metadata:
           "kind": "BpfApplication",
           "metadata": {
             "labels": {
-              "app.kubernetes.io/created-by": "bpfman-operator",
-              "app.kubernetes.io/instance": "bpfapplication-sample",
-              "app.kubernetes.io/managed-by": "kustomize",
-              "app.kubernetes.io/name": "bpfapplication",
-              "app.kubernetes.io/part-of": "bpfman-operator"
+              "app.kubernetes.io/name": "bpfapplication"
             },
             "name": "bpfapplication-sample"
           },
-          "spec": null
+          "spec": {
+            "bytecode": {
+              "image": {
+                "url": "quay.io/bpfman-bytecode/testapp:latest"
+              }
+            },
+            "globaldata": {
+              "GLOBAL_u32": [
+                13,
+                12,
+                11,
+                10
+              ],
+              "GLOBAL_u8": [
+                1
+              ]
+            },
+            "nodeselector": {},
+            "programs": [
+              {
+                "fentry": {
+                  "func_name": "do_unlinkat"
+                },
+                "type": "Fentry"
+              },
+              {
+                "kprobe": {
+                  "bpffunctionname": "my_kprobe",
+                  "func_name": "try_to_wake_up",
+                  "offset": 0,
+                  "retprobe": false
+                },
+                "type": "Kprobe"
+              },
+              {
+                "tracepoint": {
+                  "names": [
+                    "syscalls/sys_enter_openat"
+                  ]
+                },
+                "type": "Tracepoint"
+              }
+            ]
+          }
         },
         {
           "apiVersion": "bpfman.io/v1alpha1",
@@ -230,7 +269,7 @@ metadata:
       ]
     capabilities: Basic Install
     containerImage: quay.io/bpfman/bpfman-operator:v0.0.0
-    createdAt: "2024-06-07T20:38:48Z"
+    createdAt: "2024-06-10T10:47:43Z"
     operators.operatorframework.io/builder: operator-sdk-v1.27.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
     repository: https://github.com/bpfman/bpfman
