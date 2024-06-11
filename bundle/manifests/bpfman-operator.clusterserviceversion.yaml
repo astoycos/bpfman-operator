@@ -16,31 +16,14 @@ metadata:
           "spec": {
             "bytecode": {
               "image": {
-                "url": "quay.io/bpfman-bytecode/testapp:latest"
+                "url": "quay.io/bpfman-bytecode/go-application-counter:latest"
               }
-            },
-            "globaldata": {
-              "GLOBAL_u32": [
-                13,
-                12,
-                11,
-                10
-              ],
-              "GLOBAL_u8": [
-                1
-              ]
             },
             "nodeselector": {},
             "programs": [
               {
-                "fentry": {
-                  "func_name": "do_unlinkat"
-                },
-                "type": "Fentry"
-              },
-              {
                 "kprobe": {
-                  "bpffunctionname": "my_kprobe",
+                  "bpffunctionname": "kprobe_counter",
                   "func_name": "try_to_wake_up",
                   "offset": 0,
                   "retprobe": false
@@ -49,11 +32,49 @@ metadata:
               },
               {
                 "tracepoint": {
+                  "bpffunctionname": "tracepoint_kill_recorder",
                   "names": [
-                    "syscalls/sys_enter_openat"
+                    "syscalls/sys_enter_kill"
                   ]
                 },
                 "type": "Tracepoint"
+              },
+              {
+                "tc": {
+                  "bpffunctionname": "stats",
+                  "direction": "ingress",
+                  "interfaceselector": {
+                    "primarynodeinterface": true
+                  },
+                  "priority": 55
+                },
+                "type": "TC"
+              },
+              {
+                "type": "Uprobe",
+                "uprobe": {
+                  "bpffunctionname": "uprobe_counter",
+                  "containers": {
+                    "containernames": [
+                      "go-target"
+                    ],
+                    "namespace": "go-target",
+                    "pods": {}
+                  },
+                  "func_name": "main.getCount",
+                  "retprobe": false,
+                  "target": "/go-target"
+                }
+              },
+              {
+                "type": "XDP",
+                "xdp": {
+                  "bpffunctionname": "xdp_stats",
+                  "interfaceselector": {
+                    "primarynodeinterface": true
+                  },
+                  "priority": 55
+                }
               }
             ]
           }
@@ -269,7 +290,7 @@ metadata:
       ]
     capabilities: Basic Install
     containerImage: quay.io/bpfman/bpfman-operator:v0.0.0
-    createdAt: "2024-06-10T10:47:43Z"
+    createdAt: "2024-06-12T13:33:30Z"
     operators.operatorframework.io/builder: operator-sdk-v1.27.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
     repository: https://github.com/bpfman/bpfman
