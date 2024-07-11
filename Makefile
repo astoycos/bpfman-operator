@@ -29,7 +29,7 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
 # bpfman.io/bpfman-operator-bundle:$VERSION and bpfman.io/bpfman-operator-catalog:$VERSION.
-IMAGE_TAG_BASE ?= bpfman.io/bpfman-operator
+IMAGE_TAG_BASE ?= quay.io/bpfman/bpfman-operator
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)
@@ -368,11 +368,20 @@ endif
 .PHONY: catalog-build
 catalog-build: opm ## Build a catalog image.
 	$(OPM) index add --container-tool docker --mode semver --tag $(CATALOG_IMG) --bundles $(BUNDLE_IMGS) $(FROM_INDEX_OPT)
-
 # Push the catalog image.
 .PHONY: catalog-push
 catalog-push: ## Push a catalog image.
 	docker push $(CATALOG_IMG)
+
+# Deploy the catalog.
+.PHONY: catalog-deploy
+catalog-deploy: ## Deploy a catalog image.
+	$(SED) -e 's~<IMAGE>~$(CATALOG_IMG)~' ./config/samples/catalog/catalog.yaml | kubectl apply -f -
+
+# Undeploy the catalog.
+.PHONY: catalog-undeploy
+catalog-undeploy: ## Undeploy a catalog image.
+	kubectl delete -f ./config/samples/catalog/catalog.yaml
 
 ##@ CRD Deployment
 
