@@ -50,7 +50,6 @@ IMAGE_TAG ?= latest
 BPFMAN_IMG ?= quay.io/bpfman/bpfman:$(IMAGE_TAG)
 BPFMAN_AGENT_IMG ?= quay.io/bpfman/bpfman-agent:$(IMAGE_TAG)
 BPFMAN_OPERATOR_IMG ?= quay.io/bpfman/bpfman-operator:$(IMAGE_TAG)
-BPFMAN_OPERATOR_BUNDLE_IMG ?= quay.io/bpfman/bpfman-operator-bundle:$(IMAGE_TAG)
 KIND_CLUSTER_NAME ?= bpfman-deployment
 
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
@@ -344,11 +343,11 @@ load-images-kind: ## Load bpfman-agent, and bpfman-operator images into the runn
 
 .PHONY: bundle-build
 bundle-build: ## Build the bundle image.
-	docker build -f Containerfile.bundle -t $(BPFMAN_OPERATOR_BUNDLE_IMG) .
+	docker build -f Containerfile.bundle -t $(BUNDLE_IMG) .
 
 .PHONY: bundle-push
 bundle-push: ## Push the bundle image.
-	docker push $(BPFMAN_OPERATOR_BUNDLE_IMG)
+	docker push $(BUNDLE_IMG)
 
 # A comma-separated list of bundle images (e.g. make catalog-build BUNDLE_IMGS=example.com/operator-bundle:v0.1.0,example.com/operator-bundle:v0.2.0).
 # These images MUST exist in a registry and be pull-able.

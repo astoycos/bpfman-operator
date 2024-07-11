@@ -183,3 +183,15 @@ object to find references to the bpfMap pinpoints (`spec.maps`) to configure the
 
 For more architecture details about `bpfman-operator`, refer to
 [Developing the bpfman-operator](https://bpfman.io/v0.5.0-rc1/developer-guide/develop-operator)
+
+### Deploy as a bundle from the Console's OperatorHub page
+
+This mode is recommended when you want to test the customer experience of navigating through the operators'
+catalog and installing/configuring it manually through the UI.
+
+```sh
+export BUNDLE_IMG=quay.io/$USER/bpfman-operator-bundle:v$VERSION
+make bundle bundle-build bundle-push
+export CATALOG_IMG=quay.io/$USER/bpfman-operator-catalog:v$VERSION
+make catalog-build catalog-push catalog-deploy
+```
